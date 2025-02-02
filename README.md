@@ -1,162 +1,130 @@
-🌐📁 Multilingual FAQ System with WYSIWYG Support
+# **Multilingual FAQ System with WYSIWYG Support**
 
-Welcome to the Multilingual FAQ System! This project delivers a powerful FAQ platform supporting over 140 languages and integrates a WYSIWYG editor for effortless content management. 🚀
+Welcome to the **Multilingual FAQ System**! This project offers a robust FAQ platform that supports over 140 languages and integrates a WYSIWYG editor for seamless content management.
 
-🌟 Key Features
+## **Key Features**
 
-Multilingual Support: Translate FAQs into 140+ languages using deep_translator, providing superior performance over googletrans.
+**Multilingual Support:** Translate FAQs into 140+ languages using `deep_translator`, offering superior performance compared to `googletrans`.
 
-Rich Text Editing: Manage and format FAQ content seamlessly with django-ckeditor.
+**Rich Text Editing:** Utilize `django-ckeditor` for managing and formatting FAQ content.
 
-API Integration: Fully functional API to retrieve FAQs based on language preferences.
+**API Integration:** Fully functional API to retrieve FAQs based on language preferences.
 
-Redis Caching: Speed up responses with Redis caching.
+**Redis Caching:** Speed up responses with Redis caching.
 
-Admin Interface: Effortlessly manage FAQs through the Django Admin Panel.
+**Admin Interface:** Manage FAQs effortlessly through the Django admin panel.
 
-Pagination: Support for paginated FAQ listings for better user experience.
+**Pagination:** Support for paginated FAQ listings.
 
-🛠️ Technologies Used
+## **Technologies Used**
 
-Django 3.2+: Backend framework
+- **Django 3.2+**: Backend framework
+- **django-ckeditor**: For WYSIWYG editor integration
+- **deep_translator**: For fast and accurate translations
+- **Redis**: Caching for performance optimization
+- **Django REST Framework**: To create API endpoints
+- **Databases Supported**: SQLite, PostgreSQL, MySQL
+- **Python 3.8+**
 
-django-ckeditor: For WYSIWYG editor integration
+## **Installation Guide**
 
-deep_translator: For fast and accurate translations
+### **Prerequisites**
 
-Redis: Caching for performance optimization
+- Python 3.8+
+- Django 3.2+
+- Redis (for caching)
 
-Django REST Framework: To create API endpoints
+### **Setup Instructions**
 
-Databases Supported: SQLite, PostgreSQL, MySQL
+**1. Clone the Repository:**
 
-Python 3.8+
-
-⚡ Installation Guide
-
-📦 Prerequisites
-
-Python 3.8+
-
-Django 3.2+
-
-Redis (for caching)
-
-🏛️ Setup Instructions
-
-Clone the Repository:
-
+```bash
 git clone https://github.com/Nihaar-E/Backend-FAQ.git
 cd Backend-FAQ
+```
 
-Install Dependencies:
+**2. Install Dependencies:**
 
+```bash
 pip install -r requirements.txt
+```
 
-Configure the Database:
+**3. Configure the Database:**
 
-Adjust the database settings in settings.py if needed. By default, SQLite is configured.
+Adjust the database settings in `settings.py` if needed. By default, SQLite is configured.
 
-Run Migrations:
+**4. Run Migrations:**
 
+```bash
 python manage.py migrate
+```
 
-Start Redis (if using Redis):
+**5. Start Redis (if using Redis):**
 
+```bash
 redis-server
+```
 
-Run the Development Server:
+**6. Run the Development Server:**
 
+```bash
 python manage.py runserver
+```
 
-Access the Application:
+Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) to view the application.
 
-Visit http://127.0.0.1:8000/ to view the application.
+## **Docker Deployment (Optional)**
 
-🐫 Docker Deployment (Optional)
+**1. Build and Run Containers:**
 
-Build and Run Containers:
-
+```bash
 docker-compose up --build
+```
 
-Access the Application:
+**2. Access the Application:**
 
-Navigate to http://localhost:8000.
+Navigate to [http://localhost:8000](http://localhost:8000).
 
-📖 Usage Guide
+## **Usage Guide**
 
-🏩 Admin Panel Access
+### **Admin Panel Access**
 
-Manage FAQs via the Django Admin Panel:
+Manage FAQs via the Django Admin panel:
 
-URL: http://127.0.0.1:8000/admin
+- **URL:** [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
+- **Actions:** Add, edit, delete FAQs, and manage translations.
 
-Actions: Add, edit, delete FAQs, and manage translations.
+### **Adding New FAQs**
 
-Adding New FAQs
+1. Log in to the Admin Panel.
+2. Navigate to the FAQ model.
+3. Add a new entry with the Question and Answer.
+4. Optionally, add translations in other languages.
 
-Log in to the Admin Panel.
+### **API Access**
 
-Navigate to the FAQ model.
+- **API Home:** [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+- **Fetch All FAQs:** [http://127.0.0.1:8000/api/faqs/](http://127.0.0.1:8000/api/faqs/)
+- **Fetch FAQs in Hindi:** [http://127.0.0.1:8000/api/faqs/?lang=hi](http://127.0.0.1:8000/api/faqs/?lang=hi)
 
-Add a new entry with the Question and Answer.
+### **API Endpoints Overview**
 
-Optionally, add translations in other languages.
+| Method | Endpoint                      | Description               |
+|--------|-------------------------------|---------------------------|
+| GET    | `/api/faqs/`                  | Retrieve all FAQs         |
+| GET    | `/api/faqs/?lang=hi`          | Retrieve FAQs in Hindi    |
+| POST   | `/api/faqs/`                  | Create a new FAQ          |
+| PUT    | `/api/faqs/{id}/`             | Update an existing FAQ    |
+| DELETE | `/api/faqs/{id}/`             | Delete an FAQ             |
 
-🔹 API Access
+### **Example API Requests**
 
-API Home: http://127.0.0.1:8000/
+- **GET FAQs in English:** [http://127.0.0.1:8000/faqs/?lang=en](http://127.0.0.1:8000/faqs/?lang=en)
+- **GET FAQs in Hindi:** [http://127.0.0.1:8000/faqs/?lang=hi](http://127.0.0.1:8000/faqs/?lang=hi)
 
-Fetch All FAQs: http://127.0.0.1:8000/api/faqs/
+### **Sample API Response**
 
-Fetch FAQs in Hindi: http://127.0.0.1:8000/api/faqs/?lang=hi
-
-API Endpoints Overview
-
-Method
-
-Endpoint
-
-Description
-
-GET
-
-/api/faqs/
-
-Retrieve all FAQs
-
-GET
-
-/api/faqs/?lang=hi
-
-Retrieve FAQs in Hindi
-
-POST
-
-/api/faqs/
-
-Create a new FAQ
-
-PUT
-
-/api/faqs/{id}/
-
-Update an existing FAQ
-
-DELETE
-
-/api/faqs/{id}/
-
-Delete an FAQ
-
-Example API Request
-
-GET FAQs in English: http://127.0.0.1:8000/faqs/?lang=en
-
-GET FAQs in Hindi: http://127.0.0.1:8000/faqs/?lang=hi
-
-Sample API Response
-
+```json
 [
     {
       "question": "What is BharatFD",
@@ -164,35 +132,39 @@ Sample API Response
       "id": 1
     }
 ]
+```
 
-🚥 Docker Deployment Steps
+## **Docker Deployment Steps**
 
-Build the Docker Image:
+**1. Build the Docker Image:**
 
+```bash
 docker build -t faq-web .
+```
 
-Run Docker Compose:
+**2. Run Docker Compose:**
 
+```bash
 docker-compose up --build
+```
 
-Access the Application:
+**3. Access the Application:**
 
-Navigate to http://localhost:8000.
+Visit [http://localhost:8000](http://localhost:8000).
 
-🖋️ Contributing
+## **Contributing**
 
-We welcome contributions to enhance the system! 🎉
+We welcome contributions to enhance the system!
 
-Fork the repository.
+1. Fork the repository.
+2. Create a new branch for your feature.
+3. Commit your changes.
+4. Push your branch and create a Pull Request.
 
-Create a new branch for your feature.
+## **Contact Information**
 
-Commit your changes.
+**Developed by:** Yuvraj Singh Rathore  
+**Email:** yuvrajsinghrathore1034@gmail.com  
 
-Push your branch and create a Pull Request.
+Feel free to reach out with any questions or suggestions!
 
-🔗 Contact Information
-
-Developed by: Yuvraj Singh RathoreEmail: yuvrajsinghrathore1034@gmail.com
-
-Feel free to reach out with any questions or suggestions! 😊
