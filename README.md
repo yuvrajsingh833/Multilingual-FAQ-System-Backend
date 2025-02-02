@@ -39,8 +39,8 @@ Welcome to the **Multilingual FAQ System**! This project offers a robust FAQ pla
 **1. Clone the Repository:**
 
 ```bash
-git clone https://github.com/Nihaar-E/Backend-FAQ.git
-cd Backend-FAQ
+git clone https://github.com/yuvrajsingh833/Multilingual-FAQ-System-Backend.git
+cd Multilingual-FAQ-System-Backend
 ```
 
 **2. Install Dependencies:**
